@@ -1,0 +1,137 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    --primary-color: hsl(158, 36%, 37%);
+    --background-color: hsl(30, 38%, 92%);
+    --primary-color-active: hsl(212, 21%, 14%);
+    --price-color: var(--price-color);
+    --secondary-text: hsl(228, 12%, 48%);
+    --button-text-color: hsl(0, 0%, 100%);
+    --container-background-color: hsl(0, 0%, 100%);
+}
+
+body {
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1, h2 {
+    font-family: montserrat;
+    font-weight: 700;
+}
+
+p {
+    font-family: montserrat;
+    font-size: 14px;
+}
+
+div.product-card {
+    background-color: var(--container-background-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    overflow: hidden;
+    gap: 10px;
+}
+
+.product-img {
+    width: 100%;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    margin: 20px;
+}
+
+.product-info .description {
+    color: var(--secondary-text);
+}
+
+.product-info .price-old {
+    color: var(--secondary-text);
+    text-decoration: line-through;
+}
+
+.price {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.product-info .price-new {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.category {
+    color: var(--secondary-text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.product-button {
+    position: relative;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.product-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color-active); /* Domyślnie niewidoczne */
+    opacity: 0;
+    transition: background-color 0.2s;
+    z-index: -1;
+  }
+
+.product-button:active::after {
+    opacity: 0.5;
+}
+
+.product-button img {
+    margin: 0 5px;
+}
+
+@media (max-width: 375px) {
+    div.product-card {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .product-img {
+        width: none;
+        height: 35%;
+    }
+
+}
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
